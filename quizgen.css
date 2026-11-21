@@ -1,0 +1,145 @@
+/* 퀴즈 생성기 (quizgen.html). 공통 모양(머리글, 폼, 버튼 등)은 style.css의 .quiz 규칙을 그대로 씁니다. */
+
+.quizgen select {
+  font: inherit;
+  max-width: 100%;
+  padding: 9px 12px;
+  border: 2.5px solid var(--ink);
+  border-radius: 14px;
+  background: var(--paper);
+  color: var(--text);
+}
+
+.quizgen select:focus-visible,
+.quizgen summary:focus-visible {
+  outline: 3px solid #ff8fa3;
+  outline-offset: 2px;
+}
+
+.quizgen .unit {
+  flex: 1 1 220px;
+}
+
+.quizgen .result-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.quizgen .result-head h2 {
+  margin: 0;
+}
+
+.quizgen .chips {
+  margin-bottom: 8px;
+}
+
+.quizgen .chips li {
+  padding: 2px 12px;
+  font-weight: bold;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+
+.quizgen .hint {
+  margin: 0;
+}
+
+.quizgen .cards {
+  display: grid;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.quizgen .card {
+  min-width: 0;
+  padding: 14px 16px 12px;
+  border: 2.5px solid var(--ink);
+  border-radius: 18px;
+  background: var(--sky-soft);
+  /* 한글이 낱말 중간에서 끊기지 않게 합니다. 너무 긴 낱말은 overflow-wrap이 잘라 줍니다. */
+  word-break: keep-all;
+}
+
+.quizgen .card:nth-child(4n + 2) { background: var(--pink-soft); }
+.quizgen .card:nth-child(4n + 3) { background: var(--mint-soft); }
+.quizgen .card:nth-child(4n) { background: var(--yellow-soft); }
+
+.quizgen .card h3 {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0 0 12px;
+  font-size: 1.1rem;
+  color: var(--ink);
+}
+
+.quizgen .number {
+  flex: none;
+  padding: 0 12px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: #fff;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* AI가 문제나 해설에 줄바꿈을 넣으면 그대로 보여 줍니다. */
+.quizgen .question,
+.quizgen .answer p {
+  min-width: 0;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.quizgen .choices {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+  gap: 8px;
+  margin: 0 0 10px;
+  padding: 0;
+}
+
+.quizgen .choices li {
+  display: flex;
+  gap: 8px;
+  min-width: 0;
+  padding: 8px 12px;
+  border: 2px solid var(--ink);
+  border-radius: 14px;
+  background: #fff;
+  overflow-wrap: anywhere;
+}
+
+.quizgen .mark {
+  flex: none;
+  font-weight: bold;
+  color: var(--ink);
+}
+
+.quizgen .card.revealed .correct {
+  background: var(--mint);
+  font-weight: bold;
+  box-shadow: 0 3px 0 var(--ink);
+}
+
+.quizgen .answer summary {
+  width: fit-content;
+  border-radius: 8px;
+  font-weight: bold;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.quizgen .answer p {
+  margin: 8px 0 0;
+}
+
+.quizgen .answer-line {
+  font-weight: bold;
+  color: var(--ink);
+}

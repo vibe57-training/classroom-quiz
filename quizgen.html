@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>퀴즈 생성기</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="quizgen.css">
+</head>
+<body>
+  <header>
+    <h1>퀴즈 생성기: 초등 3학년 4지선다</h1>
+    <nav>
+      <a href="index.html">홈</a>
+      <a href="quiz.html">대푯값 퀴즈</a>
+      <a href="activity.html">학습활동 추천</a>
+    </nav>
+  </header>
+  <main class="quiz quizgen">
+    <section id="notice" class="notice" role="alert" hidden>
+      <h2 id="notice-title"></h2>
+      <p id="notice-text"></p>
+    </section>
+
+    <section id="maker" hidden>
+      <h2>문항 만들기</h2>
+      <form id="form" novalidate>
+        <label>교과
+          <select id="subject">
+            <option>국어</option>
+            <option selected>수학</option>
+            <option>사회</option>
+            <option>과학</option>
+            <option>도덕</option>
+            <option>영어</option>
+            <option>음악</option>
+            <option>미술</option>
+            <option>체육</option>
+          </select>
+        </label>
+        <label class="unit">단원
+          <input id="unit" type="text" maxlength="60" placeholder="예: 분수와 소수" autocomplete="off" required>
+        </label>
+        <label>난이도
+          <select id="difficulty">
+            <option>쉬움</option>
+            <option selected>보통</option>
+            <option>어려움</option>
+          </select>
+        </label>
+        <button type="submit" id="submit">문항 5개 만들기</button>
+      </form>
+      <p id="error" class="error" role="alert"></p>
+    </section>
+
+    <section id="result" hidden></section>
+  </main>
+  <script src="quizgen.js"></script>
+</body>
+</html>
